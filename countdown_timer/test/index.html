@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <!-- HTML Page FAVICON (Icon) -->
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/4205/4205603.png"
+    />
+
+    <!-- Stylesheet Links:------------------------------------------------------------------------------ -->
+
+    <!-- Animate CSS lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Bttn CSS lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.min.css"
+      integrity="sha512-/2285SnGiTHjSKBkJzedsJ8wwSP0j74ZQyusMQ9j5Z1RtyKqZ3XtfS8hVp8OadLs2uq+8V6/n+CyqUNTO/UpYg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Font Awesome Icon CSS lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS lib -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/css/bootstrap.min.css"
+      integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- CountDownTimer App CSS Style Sheet -->
+    <link rel="stylesheet" href="./assets/CSS/styles.css" />
+
+    <!-- Pre Script Links:------------------------------------------------------------------------------ -->
+    <!-- JQuery lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Modernizer lib -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+  </head>
+  <body>
+    <!-- Errors/Alerts -->
+    <div id="notify"></div>
+
+    <!-- Loading Icon -->
+    <div class="se-pre-con"></div>
+    <div id="app"></div>
+
+    <!-- CountDownTimer App HTML Body -->
+    <div class="container">
+      <button
+        id="btn-reset"
+        title="Reset to previous-set time"
+        class="bttn-jelly bttn-lg bttn-warning"
+      >
+        <i class="fas fa-undo-alt"></i>
+      </button>
+      <button
+        id="btn-edit-one"
+        title="Change to new time"
+        class="bttn-jelly bttn-lg bttn-success d-none d-sm-inline"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        <i class="far fa-edit"></i>
+      </button>
+      <button
+        id="btn-pause"
+        title="Pause Timer"
+        class="bttn-jelly bttn-lg mainBtn bttn-success"
+      >
+        <i class="fas fa-pause"></i>
+      </button>
+      <button
+        id="btn-play"
+        title="Start Timer"
+        class="bttn-jelly bttn-lg mainBtn bttn-success"
+      >
+        <i class="fas fa-play"></i>
+      </button>
+      <button
+      id="btn-stop"
+      title="Stop Timer"
+      class="bttn-jelly bttn-lg mainBtn bttn-danger"
+    >
+      <i class="fas fa-stop"></i>
+    </button>
+      <button
+        id="btn-edit-two"
+        title="Change to new time"
+        class="bttn-jelly bttn-lg bttn-success d-inline d-sm-none"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        <i class="far fa-edit"></i>
+      </button>
+
+      <button
+        id="btn-sound"
+        title="Not Muted"
+        class="bttn-jelly bttn-lg bttn-success"
+      >
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <button
+        id="btn-mute"
+        title="Muted"
+        class="bttn-jelly bttn-lg bttn-success"
+      >
+        <i class="fas fa-volume-mute"></i>
+      </button>
+      <button
+        id="btn-del"
+        title="Delete all times and current Timer"
+        class="bttn-jelly bttn-lg bttn-danger"
+      >
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+
+    <!-- Modal(Bootstrap Dialog Box) -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            <h5 class="modal-title text-center" id="staticBackdropLabel">
+              <i class="fas fa-hourglass-half"></i>
+            </h5>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3 d-flex d-flex-row">
+                <div class="text-center">
+                  <label>Hours</label>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    id="inpt-hours"
+                    placeholder="00"
+                    min="0"
+                  />
+                </div>
+                <div class="text-center px-2">
+                  <label>Minutes</label>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    id="inpt-minutes"
+                    placeholder="00"
+                    min="0"
+                  />
+                </div>
+                <div class="text-center">
+                  <label>Seconds</label>
+                  <input
+                    type="number"
+                    class="form-control text-center"
+                    id="inpt-seconds"
+                    placeholder="00"
+                    min="0"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button
+              data-bs-dismiss="modal"
+              title="Close"
+              class="bttn-jelly bttn-md bttn-danger modalBtn"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+            <button
+              data-bs-dismiss="modal"
+              title="Set Time"
+              id="btn-timerset"
+              class="bttn-jelly bttn-md bttn-success modalBtn"
+            >
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Script Links:------------------------------------------------------------------------------ -->
+    <!-- CountDownTimer App Javascript -->
+    <script src="./assets/JS/app.js"></script>
+    <!-- Bootstrap Javascript lib -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.min.js"
+      integrity="sha512-ewfXo9Gq53e1q1+WDTjaHAGZ8UvCWq0eXONhwDuIoaH8xz2r96uoAYaQCm1oQhnBfRXrvJztNXFsTloJfgbL5Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </body>
+</html>

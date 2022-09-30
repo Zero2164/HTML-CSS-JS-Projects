@@ -1,0 +1,141 @@
+body, html {
+  background-color: rgb(44, 53, 58);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+#app {
+  padding-top: 4rem;
+}
+
+#notify {
+  padding-top: 0;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+#close-msg:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.alert {
+  position: relative;
+  z-index: 99;
+}
+
+.mainBtn {
+  width: 6rem;
+}
+
+.modalBtn {
+  width: 4rem;
+}
+
+.modal-content {
+  background-color: rgb(44, 53, 58) !important;
+  color: whitesmoke;
+}
+
+
+.bttn-jelly {
+    margin: 1rem;
+}
+
+#btn-pause, #btn-play, #btn-mute, #btn-edit-one, #btn-edit-two, #btn-reset, #btn-stop, #btn-del {
+    display: none;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 4rem;
+    text-align: center;
+}
+
+/* Sets the containers height and width */
+.base-timer {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 8px;
+  stroke: whitesmoke;
+}
+
+.base-timer__label {
+  position: absolute;
+  padding-top: 3rem;
+
+  /* Size should match the parent container */
+  width: 100%;
+  height: 100%;
+
+  /* Keep the label aligned to the top */
+  top: 0;
+
+  /* Create a flexible box that centers content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Sort of an arbitrary number; adjust to your liking */
+  font-size: 2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+
+}
+
+.base-timer__path-remaining {
+  /* Just as thick as the original ring */
+  stroke-width: 8px;
+  /* Rounds the line endings to create a seamless circle */
+  stroke-linecap: round;
+
+  /* Makes sure the animation starts at the top of the circle */
+  transform: rotate(90deg);
+  transform-origin: center;
+
+  /* One second aligns with the speed of the countdown timer */
+  transition: 1s linear all;
+
+  /* Allows the ring to change color when the color value updates */
+  stroke: #009D3D;
+}
+
+.base-timer__svg {
+  /* Flips the svg and makes the animation to move left-to-right */
+  transform: scaleX(-1);
+}
+
+
+/* Page Loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: rgb(44, 53, 58);
+}
