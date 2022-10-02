@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    background-color: rgb(33, 52, 68);
+}
+
+#chartbox {
+    width: 40rem;
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px #1c1d1d6d;
+    background-color: whitesmoke;
+    transition: 0.4s;
+    margin: 0 auto;
+    padding: 2rem;
+    
+}
+
+#chartbox:hover {
+    cursor: pointer;
+    background-color: rgba(245, 245, 245, 0.952);
+    box-shadow: 7px 5px 5px #0d03506d;
+    transform: translateX(0.2rem);
+}
