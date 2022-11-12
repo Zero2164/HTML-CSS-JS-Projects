@@ -1,0 +1,85 @@
+body {
+    font-family: Roboto, sans-serif;
+
+}
+
+#aumchart {
+    width: 100%;
+    padding-top: 4rem;
+}
+
+
+
+
+.apexcharts-tooltip {
+    color: #000000;
+    font-weight: bold;
+    box-shadow: none;
+    display: block !important;
+
+}
+
+.apexcharts-legend-series {
+    padding-top: 2rem;
+
+}
+
+.desktop_tooltip {
+    background: transparent;
+    text-align: left;
+    line-height: 20px;
+    border-radius: 15px;
+
+
+}
+
+.tooltip_title {
+    font-size: 15px;
+}
+
+.tooltip_data {
+    color: #7300ff;
+}
+
+
+.tooltip_date {
+    font-weight: 100;
+    font-size: 15px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 35px auto;
+    margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    text-align: center;
+}
+
+.container2 {
+    max-width: 300px;
+    margin: 35px auto;
+    margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    text-align: center;
+}
+
+#spark3 {
+    position: relative;
+    padding-top: 15px;
+}
+
+#SvgjsSvg1078:hover #SvgjsText1082,
+#SvgjsSvg1078:hover #SvgjsText1083 {
+    opacity: 0 !important;
+    transition: 0.2s;
+}
+
+
+
+/* overrides */
+.sparkboxes #apexcharts-subtitle-text {
+    fill: #8799a2 !important;
+}
