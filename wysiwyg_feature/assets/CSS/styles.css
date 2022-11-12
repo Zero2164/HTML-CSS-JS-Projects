@@ -1,0 +1,14 @@
+html body {
+    text-align: center;
+    margin: 0 auto;
+    color: #EEEEEE;
+    background-color: rgb(43, 53, 56);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tinyMCEForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
